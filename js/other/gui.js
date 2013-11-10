@@ -3,19 +3,19 @@ var mainCanvas = null;
 var fullscreenCanvas = null;
 var showAsMinimal = false;
 var keyZones = [
-	["right", [39]],
-	["left", [37]],
+	["right", []],//[39]],
+	["left", []],//[37]],
 	["up", [38]],
 	["down", [40]],
-	["a", [88, 74]],
-	["b", [90, 81, 89]],
-	["select", [16]],
-	["start", [13]]
+	["a", [65]],//[88, 74]],
+	["b", []],//[90, 81, 89]],
+	["select", []],//[16]],
+	["start", []]//[13]]
 ];
 function windowingInitialize() {
 	cout("windowingInitialize() called.", 0);
 	windowStacks[0] = windowCreate("GameBoy", true);
-	windowStacks[1] = windowCreate("terminal", false);
+	/*windowStacks[1] = windowCreate("terminal", false);
 	windowStacks[2] = windowCreate("about", false);
 	windowStacks[3] = windowCreate("settings", false);
 	windowStacks[4] = windowCreate("input_select", false);
@@ -23,7 +23,7 @@ function windowingInitialize() {
 	windowStacks[6] = windowCreate("local_storage_popup", false);
 	windowStacks[7] = windowCreate("local_storage_listing", false);
 	windowStacks[8] = windowCreate("freeze_listing", false);
-	windowStacks[9] = windowCreate("save_importer", false);
+	windowStacks[9] = windowCreate("save_importer", false);*/
 	mainCanvas = document.getElementById("mainCanvas");
 	fullscreenCanvas = document.getElementById("fullscreen");
 	try {
@@ -34,7 +34,7 @@ function windowingInitialize() {
 		cout("Fatal windowing error: \"" + error.message + "\" file:" + error.fileName + " line: " + error.lineNumber, 2);
 	}
 	//Update the settings to the emulator's default:
-	document.getElementById("enable_sound").checked = settings[0];
+	/*document.getElementById("enable_sound").checked = settings[0];
 	document.getElementById("enable_gbc_bios").checked = settings[1];
 	document.getElementById("disable_colors").checked = settings[2];
 	document.getElementById("rom_only_override").checked = settings[9];
@@ -48,11 +48,11 @@ function windowingInitialize() {
     document.getElementById("channel1").checked = settings[14][0];
     document.getElementById("channel2").checked = settings[14][1];
     document.getElementById("channel3").checked = settings[14][2];
-    document.getElementById("channel4").checked = settings[14][3];
+    document.getElementById("channel4").checked = settings[14][3];*/
 }
 function registerGUIEvents() {
 	cout("In registerGUIEvents() : Registering GUI Events.", -1);
-	addEvent("click", document.getElementById("terminal_clear_button"), clear_terminal);
+	/*addEvent("click", document.getElementById("terminal_clear_button"), clear_terminal);
 	addEvent("click", document.getElementById("local_storage_list_refresh_button"), refreshStorageListing);
 	addEvent("click", document.getElementById("terminal_close_button"), function () { windowStacks[1].hide() });
 	addEvent("click", document.getElementById("about_close_button"), function () { windowStacks[2].hide() });
@@ -67,21 +67,21 @@ function registerGUIEvents() {
 	addEvent("click", document.getElementById("GameBoy_settings_menu"), function () { windowStacks[3].show() });
 	addEvent("click", document.getElementById("local_storage_list_menu"), function () { refreshStorageListing(); windowStacks[7].show(); });
 	addEvent("click", document.getElementById("freeze_list_menu"), function () { refreshFreezeListing(); windowStacks[8].show(); });
-	addEvent("click", document.getElementById("view_importer"), function () { windowStacks[9].show() });
+	addEvent("click", document.getElementById("view_importer"), function () { windowStacks[9].show() });*/
 	addEvent("keydown", document, keyDown);
 	addEvent("keyup", document,  function (event) {
 		if (event.keyCode == 27) {
 			//Fullscreen on/off
-			fullscreenPlayer();
+			//fullscreenPlayer();
 		}
 		else {
 			//Control keys / other
 			keyUp(event);
 		}
 	});
-	addEvent("MozOrientation", window, GameBoyGyroSignalHandler);
-	addEvent("deviceorientation", window, GameBoyGyroSignalHandler);
-	new popupMenu(document.getElementById("GameBoy_file_menu"), document.getElementById("GameBoy_file_popup"));
+	//addEvent("MozOrientation", window, GameBoyGyroSignalHandler);
+	//addEvent("deviceorientation", window, GameBoyGyroSignalHandler);
+	/*new popupMenu(document.getElementById("GameBoy_file_menu"), document.getElementById("GameBoy_file_popup"));
 	addEvent("click", document.getElementById("data_uri_clicker"), function () {
 		var datauri = prompt("Please input the ROM image's Base 64 Encoded Text:", "");
 		if (datauri != null && datauri.length > 0) {
@@ -314,7 +314,7 @@ function registerGUIEvents() {
 	addEvent("click", document.getElementById("view_fullscreen"), fullscreenPlayer);
 	new popupMenu(document.getElementById("GameBoy_view_menu"), document.getElementById("GameBoy_view_popup"));
 	addEvent("click", document.getElementById("view_terminal"), function () { windowStacks[1].show() });
-	addEvent("click", document.getElementById("view_instructions"), function () { windowStacks[5].show() });
+	addEvent("click", document.getElementById("view_instructions"), function () { windowStacks[5].show() });*/
 	addEvent("mouseup", document.getElementById("gfx"), initNewCanvasSize);
 	addEvent("resize", window, initNewCanvasSize);
 	addEvent("unload", window, function () {
@@ -358,8 +358,6 @@ function keyUp(event) {
 	}
 }
 function initPlayer() {
-	document.getElementById("title").style.display = "none";
-	document.getElementById("port_title").style.display = "none";
 	document.getElementById("fullscreenContainer").style.display = "none";
 }
 function fullscreenPlayer() {

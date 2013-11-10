@@ -14,11 +14,11 @@ function windowStack(element) {
 		this.hadFocus = true;
 		this.hookedMouse = false;
 		var thisObj2 = this;
-		this.events = [
+		/*this.events = [
 			["mousedown", function (event) { thisObj2.dragEnable(event); }],
 			["mousemove", function (event) { thisObj2.drag(event); }],
 			["mouseup", function (event) { thisObj2.dragDisable(); }]
-		];
+		];*/
 	}
 }
 windowStack.prototype.registerMouseEvents = function () {
@@ -123,11 +123,11 @@ windowStack.prototype.interceptOpacity = function () {
 }
 windowStack.prototype.center = function () {
 	var docWidth = Math.max(document.documentElement.clientWidth, document.getElementsByTagName("body")[0].clientWidth);
-	var docHeight = Math.max(document.documentElement.clientHeight, document.getElementsByTagName("body")[0].clientHeight);
+	//var docHeight = Math.max(document.documentElement.clientHeight, document.getElementsByTagName("body")[0].clientHeight);
 	var docLeft = Math.max(document.documentElement.scrollLeft, document.getElementsByTagName("body")[0].scrollLeft);
-	var docTop = Math.max(document.documentElement.scrollTop, document.getElementsByTagName("body")[0].scrollTop);
+	//var docTop = Math.max(document.documentElement.scrollTop, document.getElementsByTagName("body")[0].scrollTop);
 	this.domObject.style.left = Math.round(((docWidth - this.domObject.offsetWidth) / 2) + docLeft) + "px";
-	this.domObject.style.top = Math.round(((docHeight - this.domObject.offsetHeight) / 2) + docTop) + "px";
+	//this.domObject.style.top = Math.round(((docHeight - this.domObject.offsetHeight) / 2) + docTop) + "px";
 }
 windowStack.prototype.hide = function () {
 	this.domObject.style.display = "none";

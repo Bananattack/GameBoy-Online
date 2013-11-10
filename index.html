@@ -1,27 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US">
+<html>
     <head>
-        <style type="text/css">@import url(&quot;css/GameBoy.css&quot;);</style>
-        <script type="text/javascript">
-    var DEBUG_MESSAGES = false;
-    var DEBUG_WINDOWING = false;
-    window.onload = function () {
-        windowingInitialize();
-    }
-        </script>
-        <script type="text/javascript" src="js/other/windowStack.js"/>
-        <script type="text/javascript" src="js/other/terminal.js"/>
-        <script type="text/javascript" src="js/other/gui.js"/>
-        <script type="text/javascript" src="js/other/base64.js"/>
-        <script type="text/javascript" src="js/other/json2.js"/>
-        <script type="text/javascript" src="js/other/swfobject.js"/>
-        <script type="text/javascript" src="js/other/resampler.js"/>
-        <script type="text/javascript" src="js/other/XAudioServer.js"/>
-        <script type="text/javascript" src="js/other/resize.js"/>
-        <script type="text/javascript" src="js/GameBoyCore.js"/>
-        <script type="text/javascript" src="js/GameBoyIO.js"/>
-        <title>GameBoy Online</title>
+        <title>HYPER CAT</title>
+        <link rel='stylesheet' href='css/GameBoy.css'></style>
+        <script type="text/javascript" src="js/other/windowStack.js"></script>
+        <script type="text/javascript" src="js/other/terminal.js"></script>
+        <script type="text/javascript" src="js/other/gui.js"></script>
+        <script type="text/javascript" src="js/other/base64.js"></script>
+        <script type="text/javascript" src="js/other/json2.js"></script>
+        <script type="text/javascript" src="js/other/swfobject.js"></script>
+        <script type="text/javascript" src="js/other/resampler.js"></script>
+        <script type="text/javascript" src="js/other/XAudioServer.js"></script>
+        <script type="text/javascript" src="js/other/resize.js"></script>
+        <script type="text/javascript" src="js/GameBoyCore.js"></script>
+        <script type="text/javascript" src="js/GameBoyIO.js"></script>
+        <script type="text/javascript" src="start.js"></script>
     </head>
     <body>
         <div id="GameBoy" class="window">
@@ -33,9 +26,28 @@
             </div>
             <div id="gfx">
                 <canvas id="mainCanvas"/>
-                <span id="title">GameBoy</span>
-                <span id="port_title">Online</span>
             </div>
+            <h1>HYPER CAT by Andrew G. Crowell.</h1>
+            <p>Hypercat is a virtual pet simulator game! Take care of HYPERCAT and keep it well-fed and happy!</p>
+            <p>This is an entry for GBJAM 2, and is an actual Game Boy game written in GBZ80 assembly. Written in Wiz, a high-level assembly language.</p>
+            <h3>Controls:</h3>
+            <ul>
+                <li><b>Up</b>/<b>Down</b> - move cursor</li>
+                <li><b>A</b> - confirm</li>
+            </ul>
+            <h3>Display</h3>
+            <ul><li><b>LOVE</b> - the current relationship between you and HYPERCAT, measuring how much it likes you on a scale of 0-4.</li>
+            <li><b>FOOD</b> - how hungry HYPERCAT is at the moment. Wait too long, and HYPERCAT will be hungry.</li></ul>
+            <h3>Actions</h3>
+            <ul><li><b>Hug</b> - lavish your attention on HYPERCAT. Do this enough and HYPERCAT will learn to love you.</li>
+            <li><b>Feed</b> - feed HYPERCAT some food. HYPERCAT has very specialized dietary needs, and will only eat pepperoni pizza. Make sure you don't overfeed!</li>
+            <li><b>Clean</b> - when HYPERCAT poops, it leaves an undesirable stench. You should clean this up or HYPERCAT will be out of control!</li>
+            <li><b>Lights</b> - when HYPERCAT sleeps, you need to turn out the lights to make sure it rests adequately. Just don't do it when HYPERCAT is awake.</li></ul>
+            <h2><a href='http://make.vg/get/hypercat.zip'>Download (.zip)</a></h2>
+            <ul><li>Download includes .gb rom, Windows emulator, and MIT-licensed assembly source code + compiler.</li></ul>
+            <p>This player uses a modified version of <a href='https://github.com/grantgalitz/GameBoy-Online'>GameBoy Online</a> by Grant Galitz, which is released under the GPLv2.
+            Source modifications can be found <a href='https://github.com/Bananattack/hypercat-online'>here</a>.</p>
+            <p>&nbsp;</p>
         </div>
         <div id="terminal" class="window">
             <div id="terminal_output"/>
